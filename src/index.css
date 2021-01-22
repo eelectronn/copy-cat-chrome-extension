@@ -1,0 +1,12 @@
+body {
+    background-color: #8083c9;
+}
+
+.my-row {
+    border: red solid 3px;
+    width: 80%
+}
+
+.my-col {
+    border: blue dotted 3px;
+}

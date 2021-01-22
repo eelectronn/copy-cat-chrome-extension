@@ -1,18 +1,14 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
+
+import CopyTextContainer from './components/CopyTextContainer'
 
 function App() {
 	return (
 		<div className='App'>
-			<div
-				style={{
-					backgroundColor: 'thistle',
-					height: '100vh',
-				}}
-			>
-			</div>
+			<CopyTextContainer />
 		</div>
-	);
+	)
 }
 
-export default App;
+export default App
