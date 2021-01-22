@@ -29,6 +29,8 @@ module.exports = {
     'no-unused-vars': 'warn',
     'semi': ['warn', 'never'],
     'object-curly-spacing': ['warn', 'always'],
-    'no-mixed-spaces-and-tabs': 'off'
+    'no-mixed-spaces-and-tabs': 'off',
+
+    // React rules
   }
 }

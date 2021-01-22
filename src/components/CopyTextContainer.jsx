@@ -1,6 +1,8 @@
 import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
 
+import CopyTextBox from './CopyTextBox'
+
 const CopyTextContainer = () => {
     const textContent = [
         {
@@ -35,7 +37,7 @@ const CopyTextContainer = () => {
 			<Row className='my-row justify-content-center'>
                 {textContent.map((content, index) => (
                     <Col className='my-col' lg={4} key={index}>
-                        {content.display}
+                        <CopyTextBox display={content.display} text={content.text} />
                     </Col>
                 ))}
 			</Row>
