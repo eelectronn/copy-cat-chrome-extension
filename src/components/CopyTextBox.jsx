@@ -6,13 +6,13 @@ import { Row, Col } from 'react-bootstrap'
 import Delete from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 
-const CopyTextBox = ({ display, text }) => {
+const CopyTextBox = ({ title, text }) => {
     const [hovered, setHovered] = useState(false)
 
     return (
         <CopyToClipboard text={text}>
             <motion.div
-                whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
                 whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
@@ -31,7 +31,7 @@ const CopyTextBox = ({ display, text }) => {
                         className='d-flex align-items-center p-3'
                         xs={10}
                     >
-                        {display}
+                        {title}
 
                     </Col>
                     {hovered && <Col
@@ -70,7 +70,7 @@ const CopyTextBox = ({ display, text }) => {
 }
 
 CopyTextBox.propTypes = {
-    display: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
 }
 
