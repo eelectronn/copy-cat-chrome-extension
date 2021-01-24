@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 import { CopyToClipboard } from 'react-copy-to-clipboard/lib/Component'
 import { Row, Col } from 'react-bootstrap'
+import Delete from '@material-ui/icons/Delete'
+import Edit from '@material-ui/icons/Edit'
 
 const CopyTextBox = ({ display, text }) => {
+    const [hovered, setHovered] = useState(false)
+
     return (
         <CopyToClipboard text={text}>
             <motion.div
                 whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
                 whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
                 className='d-flex h-100'
                 style={{
                     backgroundColor: '#233546',
@@ -23,14 +29,14 @@ const CopyTextBox = ({ display, text }) => {
                 >
                     <Col
                         className='d-flex align-items-center p-3'
-                        xs={9}
+                        xs={10}
                     >
                         {display}
 
                     </Col>
-                    <Col
+                    {hovered && <Col
                         className='d-flex p-0 justify-content-center'
-                        xs={3}
+                        xs={2}
                     >
                         <Row
                             className='w-100'
@@ -43,7 +49,7 @@ const CopyTextBox = ({ display, text }) => {
                                     borderBottom: 'white solid 1px'
                                 }}
                             >
-                                edit
+                                <Edit/>
                             </Col>
                             <Col
                                 xs={12}
@@ -52,10 +58,11 @@ const CopyTextBox = ({ display, text }) => {
                                     borderLeft: 'white solid 1px'
                                 }}
                             >
-                                delete
+                                <Delete/>
                             </Col>
                         </Row>
                     </Col>
+                    }
                 </Row>
             </motion.div>
         </CopyToClipboard>
