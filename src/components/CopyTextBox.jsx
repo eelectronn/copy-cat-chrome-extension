@@ -5,7 +5,6 @@ import { CopyToClipboard } from 'react-copy-to-clipboard/lib/Component'
 import { Row, Col } from 'react-bootstrap'
 
 const CopyTextBox = ({ display, text }) => {
-
     return (
         <CopyToClipboard text={text}>
             <motion.div
@@ -16,23 +15,17 @@ const CopyTextBox = ({ display, text }) => {
                     backgroundColor: '#233546',
                     minHeight: '50px',
                     borderRadius: '10px',
+                    color: 'white'
                 }}
             >
                 <Row
                     className='w-100 m-0'
-                    style={{
-                        color: 'white',
-                    }}
                 >
                     <Col
-                        className='d-flex align-items-center'
+                        className='d-flex align-items-center p-3'
                         xs={9}
                     >
-                        <div
-                            className='p-2'
-                        >
-                            {display}
-                        </div>
+                        {display}
 
                     </Col>
                     <Col
@@ -44,29 +37,22 @@ const CopyTextBox = ({ display, text }) => {
                         >
                             <Col
                                 xs={12}
-                                className='d-flex align-items-center'
+                                className='d-flex p-1 justify-content-center align-items-center'
                                 style={{
                                     borderLeft: 'white solid 1px',
                                     borderBottom: 'white solid 1px'
                                 }}
                             >
-                                <div
-                                    className='p-1 w-100 text-center'>
-                                    edit
-                                </div>
+                                edit
                             </Col>
                             <Col
                                 xs={12}
-                                className='d-flex align-items-center'
+                                className='d-flex p-1 justify-content-center align-items-center'
                                 style={{
                                     borderLeft: 'white solid 1px'
                                 }}
                             >
-                                <div
-                                    className='p-1 w-100 text-center'
-                                >
-                                    delete
-                                </div>
+                                delete
                             </Col>
                         </Row>
                     </Col>
