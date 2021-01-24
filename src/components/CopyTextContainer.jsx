@@ -1,5 +1,7 @@
 import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
+import AddCircle from '@material-ui/icons/AddCircle'
+import { motion } from 'framer-motion'
 
 import CopyTextBox from './CopyTextBox'
 
@@ -29,7 +31,7 @@ const CopyTextContainer = () => {
 
 	return (
 	    <Container
-			className='d-flex justify-content-center align-items-center'
+			className='d-flex justify-content-center align-items-center flex-column'
 			style={{
 				height: '100vh',
 			}}
@@ -45,6 +47,25 @@ const CopyTextContainer = () => {
                     </Col>
                 ))}
 			</Row>
+            <br/>
+            <Row className='my-row justify-content-center'>
+                <motion.div
+                    className='col p-2 px-4'
+                    whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
+                    whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
+                    style={{
+                        backgroundColor: '#233546',
+                        borderRadius: '10px'
+                    }}
+                >
+                    <AddCircle
+                        style={{
+                            fontSize: 40,
+                            color: 'white'
+                        }}
+                    />
+                </motion.div>
+            </Row>
 		</Container>
 	)
 }
