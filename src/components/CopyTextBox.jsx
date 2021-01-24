@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { motion } from 'framer-motion'
 import { CopyToClipboard } from 'react-copy-to-clipboard/lib/Component'
 import { Row, Col } from 'react-bootstrap'
 import Delete from '@material-ui/icons/Delete'
@@ -8,20 +7,23 @@ import Edit from '@material-ui/icons/Edit'
 
 const CopyTextBox = ({ title, text }) => {
     const [hovered, setHovered] = useState(false)
+    const [clicked, setClicked] = useState(false)
 
     return (
         <CopyToClipboard text={text}>
-            <motion.div
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
+            <div
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
+                onMouseDown={() => setClicked(true)}
+                onMouseUp={() => setClicked(false)}
                 className='d-flex h-100'
                 style={{
                     backgroundColor: '#233546',
-                    minHeight: '50px',
+                    minHeight: '80px',
                     borderRadius: '10px',
-                    color: 'white'
+                    color: 'white',
+                    transform: clicked ? 'scale(0.9)' : hovered ? 'scale(1.1)' : '',
+                    transition: 'transform .2s'
                 }}
             >
                 <Row
@@ -64,7 +66,7 @@ const CopyTextBox = ({ title, text }) => {
                     </Col>
                     }
                 </Row>
-            </motion.div>
+            </div>
         </CopyToClipboard>
     )
 }
