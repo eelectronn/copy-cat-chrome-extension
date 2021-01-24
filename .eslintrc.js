@@ -32,5 +32,6 @@ module.exports = {
     'no-mixed-spaces-and-tabs': 'off',
 
     // React rules
+    'react/prop-types': ['warn']
   }
 }
