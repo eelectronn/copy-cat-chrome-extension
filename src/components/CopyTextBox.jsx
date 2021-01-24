@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { motion } from 'framer-motion'
 import { CopyToClipboard } from 'react-copy-to-clipboard/lib/Component'
 import { Row, Col } from 'react-bootstrap'
 
@@ -7,7 +8,9 @@ const CopyTextBox = ({ display, text }) => {
 
     return (
         <CopyToClipboard text={text}>
-            <div
+            <motion.div
+                whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
+                whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
                 className='d-flex h-100'
                 style={{
                     backgroundColor: '#233546',
@@ -23,34 +26,21 @@ const CopyTextBox = ({ display, text }) => {
                 >
                     <Col
                         className='d-flex align-items-center'
-                        xs={8}
-                        s={8}
-                        style={{
-                            // backgroundColor: 'pink'
-                        }}
+                        xs={9}
                     >
                         <div
                             className='p-2'
-                            style={{
-                                // backgroundColor: 'blue'
-                            }}
                         >
                             {display}
                         </div>
 
                     </Col>
                     <Col
-                        className='d-flex'
-                        xs={4}
-                        s={4}
-                        style={{
-                            // backgroundColor: 'blue'
-                        }}
+                        className='d-flex p-0 justify-content-center'
+                        xs={3}
                     >
                         <Row
-                            style={{
-                                // backgroundColor: 'pink'
-                            }}
+                            className='w-100'
                         >
                             <Col
                                 xs={12}
@@ -61,12 +51,7 @@ const CopyTextBox = ({ display, text }) => {
                                 }}
                             >
                                 <div
-                                    className='p-1'
-                                    style={{
-                                        width: '100%',
-                                        textAlign: 'center'
-                                    }}
-                                >
+                                    className='p-1 w-100 text-center'>
                                     edit
                                 </div>
                             </Col>
@@ -78,12 +63,7 @@ const CopyTextBox = ({ display, text }) => {
                                 }}
                             >
                                 <div
-                                    className='p-1'
-                                    style={{
-
-                                        width: '100%',
-                                        textAlign: 'center'
-                                    }}
+                                    className='p-1 w-100 text-center'
                                 >
                                     delete
                                 </div>
@@ -91,7 +71,7 @@ const CopyTextBox = ({ display, text }) => {
                         </Row>
                     </Col>
                 </Row>
-            </div>
+            </motion.div>
         </CopyToClipboard>
     )
 }

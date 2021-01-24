@@ -40,7 +40,7 @@ const CopyTextContainer = () => {
                  }}
             >
                 {textContent.map((content, index) => (
-                    <Col className='my-col py-2' lg={4} key={index}>
+                    <Col className='my-col py-2' lg={6} key={index}>
                         <CopyTextBox display={content.display} text={content.text} />
                     </Col>
                 ))}
