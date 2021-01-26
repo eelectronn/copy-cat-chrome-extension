@@ -1,9 +1,6 @@
-console.log('Hello background extension')
+console.log(chrome)
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log(message)
-    console.log(sender)
-    let currTab
+chrome.browserAction.onClicked.addListener(() => {
     chrome.tabs.create({ url: 'index.html' })
-    sendResponse(currTab)
+    console.log('clicked')
 })
