@@ -1,19 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
 import AddCircle from '@material-ui/icons/AddCircle'
 import { motion } from 'framer-motion'
 
 import CopyTextBox from './CopyTextBox'
 import ModalForm from './ModalForm'
+import {
+    setChromeData,
+    getChromeData
+} from '../chromeApi/storage'
 
-const CopyTextContainer = (props) => {
+const CopyTextContainer = () => {
     const [showModal, setShowModal] = useState(false)
+    const [textContent, setTextContent] = useState([])
 
-    const textContent = props.textContent
+    useEffect(() => {
+        (async () => {
+            try {
+                const data = await getChromeData()
+                setTextContent(data)
+            }
+            catch (e) {
+                console.error(e)
+            }
+        })()
+    })
+
+    const handleCreate = async (newEntry) => {
+        try {
+            await setChromeData([...textContent, newEntry])
+            setTextContent([...textContent, newEntry])
+        }
+        catch (e) {
+            console.error(e)
+        }
+    }
+
 	return (
 	    <div>
             <ModalForm
-                show={showModal} setShow={setShowModal} formHeading='Add New Text'
+                show={showModal} setShow={setShowModal} formHeading='Add New Text' saveData={handleCreate}
             />
             <Container
                 className='d-flex justify-content-center align-items-center flex-column'

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 
-const ModalForm = ({ show, setShow, values, formHeading }) => {
+const ModalForm = ({ show, setShow, values, formHeading, saveData }) => {
     const [title, setTitle] = useState(values ? values.title : '')
     const [text, setText] = useState(values ? values.text : '')
 
@@ -20,6 +20,10 @@ const ModalForm = ({ show, setShow, values, formHeading }) => {
         setText('')
         console.log('title: ', newTitle)
         console.log('text: ', newText)
+        saveData({
+            title: newTitle,
+            text: newText
+        })
         console.log('save action')
         setShow(false)
     }
