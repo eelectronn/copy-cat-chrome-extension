@@ -1,37 +1,26 @@
 import React, { useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 
-const ModalForm = ({ show, setShow, values, formHeading, saveData }) => {
+const ModalForm = ({ setShow, values, formHeading, saveData }) => {
     const [title, setTitle] = useState(values ? values.title : '')
     const [text, setText] = useState(values ? values.text : '')
 
     const handleClose = () => {
-        console.log('title: ', title)
-        console.log('text: ', text)
-        setTitle('')
-        setText('')
         setShow(false)
     }
 
     const handleSave = () => {
-        const newTitle = title
-        const newText = text
-        setTitle('')
-        setText('')
-        console.log('title: ', newTitle)
-        console.log('text: ', newText)
         saveData({
-            title: newTitle,
-            text: newText
+            title,
+            text
         })
-        console.log('save action')
         setShow(false)
     }
 
     return (
         <div>
             <Modal
-                show={show}
+                show={true}
                 onHide={handleClose}
                 centered
             >
@@ -46,6 +35,7 @@ const ModalForm = ({ show, setShow, values, formHeading, saveData }) => {
                             </Form.Label>
                             <Form.Control
                                 type='text'
+                                value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                             />
                         </Form.Group>
@@ -55,6 +45,7 @@ const ModalForm = ({ show, setShow, values, formHeading, saveData }) => {
                             </Form.Label>
                             <Form.Control
                                 as='textarea'
+                                value={text}
                                 onChange={(e) => setText(e.target.value)}
                             />
                         </Form.Group>

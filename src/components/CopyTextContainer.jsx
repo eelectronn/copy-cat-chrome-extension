@@ -36,11 +36,27 @@ const CopyTextContainer = () => {
         }
     }
 
+    const handleUpdate = async (oldEntry, newEntry) => {
+        const newData = textContent.map((elem) => {
+            if(elem.title === oldEntry.title) return newEntry
+            return elem
+        })
+        try {
+            await setChromeData(newData)
+            setTextContent(newData)
+        }
+        catch (e) {
+            console.error(e)
+        }
+    }
+
 	return (
 	    <div>
-            <ModalForm
-                show={showModal} setShow={setShowModal} formHeading='Add New Text' saveData={handleCreate}
-            />
+            {showModal && <ModalForm
+                setShow={setShowModal}
+                formHeading='Add New Text'
+                saveData={handleCreate}
+            />}
             <Container
                 className='d-flex justify-content-center align-items-center flex-column'
                 style={{
@@ -54,7 +70,7 @@ const CopyTextContainer = () => {
                 >
                     {textContent.map((content, index) => (
                         <Col className='my-col py-2' lg={4} key={index}>
-                            <CopyTextBox title={content.title} text={content.text} />
+                            <CopyTextBox title={content.title} text={content.text} handleUpdate={handleUpdate}/>
                         </Col>
                     ))}
                 </Row>
