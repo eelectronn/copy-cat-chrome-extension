@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
-import AddCircle from '@material-ui/icons/AddCircle'
-import { motion } from 'framer-motion'
+import AddButton from './AddButton'
 
 import CopyTextBox from './CopyTextBox'
 import ModalForm from './ModalForm'
@@ -94,22 +93,7 @@ const CopyTextContainer = () => {
                 </Row>
                 <br/>
                 <Row className='my-row justify-content-center' onClick={() => setShowModal(true)}>
-                    <motion.div
-                        className='col p-2 px-4'
-                        whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
-                        whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
-                        style={{
-                            backgroundColor: '#233546',
-                            borderRadius: '10px'
-                        }}
-                    >
-                        <AddCircle
-                            style={{
-                                fontSize: 40,
-                                color: 'white'
-                            }}
-                        />
-                    </motion.div>
+                    <AddButton />
                 </Row>
             </Container>
         </div>
