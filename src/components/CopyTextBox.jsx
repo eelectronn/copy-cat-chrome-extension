@@ -34,9 +34,9 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
                         backgroundColor: '#233546',
                         minHeight: '80px',
                         borderRadius: '10px',
-                        color: 'white',
-                        transform: (clicked && hovered) ? 'scale(0.9)' : hovered ? 'scale(1.1)' : '',
-                        transition: 'transform .2s'
+                        color: (clicked && hovered) ? '#ffa5a5' : hovered ? 'white' : '#ffa5a5',
+                        transform: (clicked && hovered) ? 'scale(0.95)' : hovered ? 'scale(1.05)' : '',
+                        transition: 'transform .2s',
                     }}
                 >
                     <Row
