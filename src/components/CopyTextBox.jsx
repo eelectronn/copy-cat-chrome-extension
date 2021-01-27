@@ -16,7 +16,7 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
     }
 
     return (
-        <div>
+        <React.Fragment>
             {showModal && <ModalForm
                 setShow={setShowModal}
                 formHeading='Edit Item'
@@ -83,7 +83,7 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
                     </Row>
                 </div>
             </CopyToClipboard>
-        </div>
+        </React.Fragment>
     )
 }
 
