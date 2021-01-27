@@ -18,6 +18,7 @@
   "browser_action": {},
 
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }
