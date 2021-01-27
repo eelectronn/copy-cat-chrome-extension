@@ -6,7 +6,7 @@ import Edit from '@material-ui/icons/Edit'
 
 import ModalForm from './ModalForm'
 
-const CopyTextBox = ({ title, text, handleUpdate }) => {
+const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
     const [hovered, setHovered] = useState(false)
     const [clicked, setClicked] = useState(false)
     const [showModal, setShowModal] = useState(false)
@@ -35,7 +35,7 @@ const CopyTextBox = ({ title, text, handleUpdate }) => {
                         minHeight: '80px',
                         borderRadius: '10px',
                         color: 'white',
-                        transform: clicked ? 'scale(0.9)' : hovered ? 'scale(1.1)' : '',
+                        transform: (clicked && hovered) ? 'scale(0.9)' : hovered ? 'scale(1.1)' : '',
                         transition: 'transform .2s'
                     }}
                 >
@@ -73,6 +73,7 @@ const CopyTextBox = ({ title, text, handleUpdate }) => {
                                     style={{
                                         borderLeft: 'white solid 1px'
                                     }}
+                                    onClick={() => handleDelete({ title, text })}
                                 >
                                     <Delete/>
                                 </Col>

@@ -50,6 +50,19 @@ const CopyTextContainer = () => {
         }
     }
 
+    const handleDelete = async (entry) => {
+        const newData = textContent.filter((elem) => {
+            return elem.title !== entry.title
+        })
+        try {
+            await setChromeData(newData)
+            setTextContent(newData)
+        }
+        catch (e) {
+            console.error(e)
+        }
+    }
+
 	return (
 	    <div>
             {showModal && <ModalForm
@@ -70,7 +83,12 @@ const CopyTextContainer = () => {
                 >
                     {textContent.map((content, index) => (
                         <Col className='my-col py-2' lg={4} key={index}>
-                            <CopyTextBox title={content.title} text={content.text} handleUpdate={handleUpdate}/>
+                            <CopyTextBox
+                                title={content.title}
+                                text={content.text}
+                                handleUpdate={handleUpdate}
+                                handleDelete={handleDelete}
+                            />
                         </Col>
                     ))}
                 </Row>
