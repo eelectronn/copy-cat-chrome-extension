@@ -72,7 +72,7 @@ const CopyTextContainer = () => {
             <Container
                 className='d-flex justify-content-center align-items-center flex-column'
                 style={{
-                    height: '100vh',
+                    minHeight: '100vh',
                 }}
             >
                 <Row className='my-row justify-content-center'
