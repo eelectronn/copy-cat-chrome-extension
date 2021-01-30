@@ -23,66 +23,75 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
                 values={{ title, text }}
                 saveData={handleEdit}
             />}
-            <CopyToClipboard text={text}>
-                <div
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
-                    onMouseDown={() => setClicked(true)}
-                    onMouseUp={() => setClicked(false)}
-                    className='d-flex h-100'
-                    style={{
-                        backgroundColor: '#233546',
-                        minHeight: '80px',
-                        borderRadius: '10px',
-                        color: (clicked && hovered) ? '#ffa5a5' : hovered ? 'white' : '#ffa5a5',
-                        transform: (clicked && hovered) ? 'scale(0.95)' : hovered ? 'scale(1.05)' : '',
-                        transition: 'transform .2s',
-                    }}
-                >
-                    <Row
-                        className='w-100 m-0'
-                    >
-                        <Col
-                            className='d-flex align-items-center p-3'
-                            xs={10}
-                        >
-                            {title}
 
-                        </Col>
-                        {hovered && <Col
-                            className='d-flex p-0 justify-content-center'
-                            xs={2}
-                        >
-                            <Row
-                                className='w-100'
+            <div
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                onMouseDown={() => setClicked(true)}
+                onMouseUp={() => setClicked(false)}
+                className='d-flex h-100'
+                style={{
+                    backgroundColor: '#233546',
+                    minHeight: '80px',
+                    borderRadius: '10px',
+                    color: (clicked && hovered) ? '#ffa5a5' : hovered ? 'white' : '#ffa5a5',
+                    transform: (clicked && hovered) ? 'scale(0.95)' : hovered ? 'scale(1.05)' : '',
+                    transition: 'transform .2s',
+                }}
+            >
+                <Row
+                    className='w-100 m-0'
+                >
+                    <Col
+                        className='d-flex align-items-center p-0'
+                        xs={10}
+                    >
+                        <CopyToClipboard text={text}>
+                            <div
+                                className='d-flex align-items-center p-3'
+                                style={{
+                                    height: '100%',
+                                    width: '100%',
+                                }}
                             >
-                                <Col
-                                    xs={12}
-                                    className='d-flex p-1 justify-content-center align-items-center'
-                                    style={{
-                                        borderLeft: 'white solid 1px',
-                                        borderBottom: 'white solid 1px'
-                                    }}
-                                    onClick={() => setShowModal(true)}
-                                >
-                                    <Edit/>
-                                </Col>
-                                <Col
-                                    xs={12}
-                                    className='d-flex p-1 justify-content-center align-items-center'
-                                    style={{
-                                        borderLeft: 'white solid 1px'
-                                    }}
-                                    onClick={() => handleDelete({ title, text })}
-                                >
-                                    <Delete/>
-                                </Col>
-                            </Row>
-                        </Col>
-                        }
-                    </Row>
-                </div>
-            </CopyToClipboard>
+                                {title}
+                            </div>
+                        </CopyToClipboard>
+
+                    </Col>
+                    {hovered && <Col
+                        className='d-flex p-0 justify-content-center'
+                        xs={2}
+                    >
+                        <Row
+                            className='w-100'
+                        >
+                            <Col
+                                xs={12}
+                                className='d-flex p-1 justify-content-center align-items-center'
+                                style={{
+                                    borderLeft: 'white solid 1px',
+                                    borderBottom: 'white solid 1px'
+                                }}
+                                onClick={() => setShowModal(true)}
+                            >
+                                <Edit/>
+                            </Col>
+                            <Col
+                                xs={12}
+                                className='d-flex p-1 justify-content-center align-items-center'
+                                style={{
+                                    borderLeft: 'white solid 1px'
+                                }}
+                                onClick={() => handleDelete({ title, text })}
+                            >
+                                <Delete/>
+                            </Col>
+                        </Row>
+                    </Col>
+                    }
+                </Row>
+            </div>
         </React.Fragment>
     )
 }
