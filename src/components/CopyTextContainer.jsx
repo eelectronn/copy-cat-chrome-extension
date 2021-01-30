@@ -5,9 +5,9 @@ import AddButton from './AddButton'
 import CopyTextBox from './CopyTextBox'
 import ModalForm from './ModalForm'
 import {
-    setChromeData,
-    getChromeData
-} from '../chromeApi/storage'
+    setDataApi,
+    getDataApi
+} from '../api/storage'
 
 const CopyTextContainer = () => {
     const [showModal, setShowModal] = useState(false)
@@ -16,7 +16,7 @@ const CopyTextContainer = () => {
     useEffect(() => {
         (async () => {
             try {
-                const data = await getChromeData()
+                const data = await getDataApi()
                 setTextContent(data)
             }
             catch (e) {
@@ -27,7 +27,7 @@ const CopyTextContainer = () => {
 
     const handleCreate = async (newEntry) => {
         try {
-            await setChromeData([...textContent, newEntry])
+            await setDataApi([...textContent, newEntry])
             setTextContent([...textContent, newEntry])
         }
         catch (e) {
@@ -41,7 +41,7 @@ const CopyTextContainer = () => {
             return elem
         })
         try {
-            await setChromeData(newData)
+            await setDataApi(newData)
             setTextContent(newData)
         }
         catch (e) {
@@ -54,7 +54,7 @@ const CopyTextContainer = () => {
             return elem.title !== entry.title
         })
         try {
-            await setChromeData(newData)
+            await setDataApi(newData)
             setTextContent(newData)
         }
         catch (e) {
