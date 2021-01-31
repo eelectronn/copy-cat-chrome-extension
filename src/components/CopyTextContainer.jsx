@@ -72,7 +72,7 @@ const CopyTextContainer = () => {
             <Container
                 className='d-flex justify-content-center align-items-center flex-column'
                 style={{
-                    minHeight: '100vh',
+                    minHeight: '88vh',
                 }}
             >
                 <Row className='my-row justify-content-center'
@@ -92,7 +92,7 @@ const CopyTextContainer = () => {
                     ))}
                 </Row>
                 <br/>
-                <Row className='my-row justify-content-center' onClick={() => setShowModal(true)}>
+                <Row className='my-row justify-content-center pb-2' onClick={() => setShowModal(true)}>
                     <AddButton />
                 </Row>
             </Container>
