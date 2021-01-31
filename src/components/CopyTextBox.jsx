@@ -10,9 +10,26 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
     const [hovered, setHovered] = useState(false)
     const [clicked, setClicked] = useState(false)
     const [showModal, setShowModal] = useState(false)
+    const [deleteClicked, setDeleteClicked] = useState(false)
 
     const handleEdit = (updatedEntry) => {
         handleUpdate({ title, text }, updatedEntry)
+    }
+
+    const handleDeleteClick = () => {
+        if (!deleteClicked) {
+            setDeleteClicked(true)
+        }
+        else {
+            setDeleteClicked(false)
+            handleDelete({ title, text })
+        }
+    }
+
+    const handleMouseLeave = () => {
+        setHovered(false)
+        setDeleteClicked(false)
+        setClicked(false)
     }
 
     return (
@@ -26,9 +43,7 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
 
             <div
                 onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                onMouseDown={() => setClicked(true)}
-                onMouseUp={() => setClicked(false)}
+                onMouseLeave={handleMouseLeave}
                 className='d-flex h-100'
                 style={{
                     backgroundColor: '#233546',
@@ -49,6 +64,9 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
                         <CopyToClipboard text={text}>
                             <div
                                 className='d-flex align-items-center p-3'
+                                onClick={() => setDeleteClicked(false)}
+                                onMouseDown={() => setClicked(true)}
+                                onMouseUp={() => setClicked(false)}
                                 style={{
                                     height: '100%',
                                     width: '100%',
@@ -59,36 +77,37 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
                         </CopyToClipboard>
 
                     </Col>
-                    {hovered && <Col
+                    {
+                        hovered && <Col
                         className='d-flex p-0 justify-content-center'
                         xs={2}
-                    >
-                        <Row
-                            className='w-100'
                         >
-                            <Col
-                                xs={12}
-                                className='d-flex p-1 justify-content-center align-items-center'
-                                style={{
-                                    borderLeft: 'white solid 1px',
-                                    borderBottom: 'white solid 1px'
-                                }}
-                                onClick={() => setShowModal(true)}
+                            <Row
+                                className='w-100'
                             >
-                                <Edit/>
-                            </Col>
-                            <Col
-                                xs={12}
-                                className='d-flex p-1 justify-content-center align-items-center'
-                                style={{
-                                    borderLeft: 'white solid 1px'
-                                }}
-                                onClick={() => handleDelete({ title, text })}
-                            >
-                                <Delete/>
-                            </Col>
-                        </Row>
-                    </Col>
+                                <Col
+                                    xs={12}
+                                    className='d-flex p-1 justify-content-center align-items-center'
+                                    onClick={() => setShowModal(true)}
+                                >
+                                    <Edit/>
+                                </Col>
+                                <Col
+                                    xs={12}
+                                    className='d-flex p-1 justify-content-center align-items-center'
+                                    onClick={handleDeleteClick}
+                                >
+                                    <div
+                                        style={{
+                                            transform: deleteClicked ? 'scale(2.5)' : '',
+                                            transition: 'transform .2s'
+                                        }}
+                                    >
+                                        <Delete color={deleteClicked ? 'error' : 'inherit'} />
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Col>
                     }
                 </Row>
             </div>
