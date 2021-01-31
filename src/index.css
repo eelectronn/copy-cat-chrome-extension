@@ -2,6 +2,17 @@ body {
     background-color: #ff8787;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    border-bottom: solid 2px;
+    text-decoration: none;
+    color: inherit;
+}
+
 /*.my-row {*/
 /*    border: green solid 1px;*/
 /*    box-sizing: border-box;*/
