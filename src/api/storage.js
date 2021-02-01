@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
         return new Promise((resolve, reject) => {
             try {
                 chrome.storage.sync.get(['data'], (result) => {
-                    resolve(result.data)
+                    resolve(result.data ? result.data : [])
                 })
             }
             catch (e) {
