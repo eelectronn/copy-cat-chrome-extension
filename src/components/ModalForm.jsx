@@ -9,12 +9,19 @@ const ModalForm = ({ setShow, values, formHeading, saveData }) => {
         setShow(false)
     }
 
-    const handleSave = () => {
-        saveData({
-            title,
-            text
-        })
-        setShow(false)
+    const handleSave = (event) => {
+        const form = event.currentTarget
+        if (form.checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+        else {
+            saveData({
+                title,
+                text
+            })
+            setShow(false)
+        }
     }
 
     return (
@@ -27,13 +34,14 @@ const ModalForm = ({ setShow, values, formHeading, saveData }) => {
                 <Modal.Header closeButton>
                     <Modal.Title>{formHeading}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <Form>
+                <Form onSubmit={handleSave}>
+                    <Modal.Body>
                         <Form.Group>
                             <Form.Label>
                                 Title
                             </Form.Label>
                             <Form.Control
+                                required
                                 type='text'
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
@@ -44,21 +52,22 @@ const ModalForm = ({ setShow, values, formHeading, saveData }) => {
                                 Text
                             </Form.Label>
                             <Form.Control
+                                required
                                 as='textarea'
                                 value={text}
                                 onChange={(e) => setText(e.target.value)}
                             />
                         </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant='secondary' onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant='primary' onClick={handleSave}>
-                        Save
-                    </Button>
-                </Modal.Footer>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant='secondary' onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button type='submit' variant='primary'>
+                            Save
+                        </Button>
+                    </Modal.Footer>
+                </Form>
             </Modal>
         </div>
     )
