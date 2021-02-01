@@ -77,11 +77,11 @@ const CopyTextContainer = () => {
             >
                 <Row className='my-row justify-content-center'
                      style={{
-                         width: '80%'
+                         width: '90%'
                      }}
                 >
                     {textContent.map((content, index) => (
-                        <Col className='my-col py-2' lg={4} key={index}>
+                        <Col className='my-col py-2' md={6} lg={4} xl={3} key={index}>
                             <CopyTextBox
                                 title={content.title}
                                 text={content.text}
