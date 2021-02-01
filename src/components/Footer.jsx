@@ -9,8 +9,8 @@ const Footer = () => {
             style={{
                 backgroundColor: '#233546',
                 color: '#ffa5a5',
-                height: '5vh',
-                fontSize: '2vh',
+                height: '6vh',
+                fontSize: '3vh',
                 fontFamily: '\'Cutive Mono\', monospace'
             }}
         >
@@ -19,8 +19,7 @@ const Footer = () => {
                 target='_blank'
                 rel='noreferrer'
             >
-                <FontAwesomeIcon icon={faGithub} />&nbsp;
-                Github.com / eelectronn
+                <FontAwesomeIcon icon={faGithub} />&nbsp;eelectronn
             </a>
         </div>
     )

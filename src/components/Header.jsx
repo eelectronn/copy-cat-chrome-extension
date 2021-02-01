@@ -15,7 +15,7 @@ const Header = () => {
             }}
         >
             <FontAwesomeIcon icon={faFeatherAlt} /> &nbsp;
-            Copy Text
+            Copy Cat
         </div>
     )
 }
