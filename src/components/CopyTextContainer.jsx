@@ -75,13 +75,13 @@ const CopyTextContainer = () => {
                     minHeight: '87vh',
                 }}
             >
-                <Row className='my-row justify-content-center'
+                <Row className='justify-content-center'
                      style={{
                          width: '90%'
                      }}
                 >
                     {textContent.map((content, index) => (
-                        <Col className='my-col py-2' md={6} lg={4} xl={3} key={index}>
+                        <Col className='py-2' md={6} lg={4} xl={3} key={index}>
                             <CopyTextBox
                                 title={content.title}
                                 text={content.text}
@@ -92,7 +92,7 @@ const CopyTextContainer = () => {
                     ))}
                 </Row>
                 <br/>
-                <Row className='my-row justify-content-center pb-2' onClick={() => setShowModal(true)}>
+                <Row className='justify-content-center pb-2' onClick={() => setShowModal(true)}>
                     <AddButton />
                 </Row>
             </Container>
