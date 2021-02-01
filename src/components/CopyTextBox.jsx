@@ -47,6 +47,7 @@ const CopyTextBox = ({ title, text, handleUpdate, handleDelete }) => {
                 className='d-flex h-100'
                 style={{
                     backgroundColor: '#233546',
+                    fontFamily: '\'Montserrat\', sans-serif',
                     minHeight: '80px',
                     borderRadius: '10px',
                     color: (clicked && hovered) ? '#ffa5a5' : hovered ? 'white' : '#ffa5a5',

@@ -11,7 +11,7 @@ const Footer = () => {
                 color: '#ffa5a5',
                 height: '5vh',
                 fontSize: '2vh',
-                fontFamily: '\'Josefin Slab\', serif'
+                fontFamily: '\'Cutive Mono\', monospace'
             }}
         >
             <a
@@ -19,7 +19,7 @@ const Footer = () => {
                 target='_blank'
                 rel='noreferrer'
             >
-                <FontAwesomeIcon icon={faGithub} /> &nbsp;
+                <FontAwesomeIcon icon={faGithub} />&nbsp;
                 Github.com / eelectronn
             </a>
         </div>
