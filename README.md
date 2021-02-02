@@ -1,6 +1,8 @@
 # Copy Cat
 
-Google Chrome Extension. 
+Google Chrome Extension.
+
+#### [Link to Chrome Web Store](https://www.google.com)
 
 ### Features
 
