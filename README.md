@@ -2,7 +2,7 @@
 
 Google Chrome Extension.
 
-#### [Link to Chrome Web Store](https://www.google.com)
+#### [Link to Chrome Web Store](https://chrome.google.com/webstore/detail/copy-cat/cobcbcdjlpggbmfcinpmbnfajghpbhaa)
 
 ### Features
 
