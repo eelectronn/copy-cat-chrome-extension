@@ -23,7 +23,7 @@ const CopyTextContainer = () => {
                 console.error(e)
             }
         })()
-    })
+    }, [])
 
     const handleCreate = async (newEntry) => {
         try {
